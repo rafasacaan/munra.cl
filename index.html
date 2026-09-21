@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>munra — demos</title>
+<meta name="description" content="Demos grabados con equipos antiguos y sencillos. Para escuchar, nada más. La página hermana de le bateleur.">
+<meta property="og:title" content="munra — demos">
+<meta property="og:description" content="Demos grabados con equipos antiguos y sencillos. Para escuchar, nada más.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="munra">
+
+<!-- el tema se decide antes de pintar para que no parpadee -->
+<script>
+(function(){try{var t=localStorage.getItem('tema')||(matchMedia('(prefers-color-scheme: dark)').matches?'oscuro':'claro');document.documentElement.dataset.tema=t;}catch(e){}})();
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="style.css?v=1">
+<script src="maquina.js?v=1" defer></script>
+</head>
+<body>
+
+<svg class="defs" aria-hidden="true"><defs>
+<filter id="tinta" x="-3%" y="-10%" width="106%" height="120%">
+<feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="5" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G" result="d"/>
+<feGaussianBlur in="d" stdDeviation="0.4"/>
+</filter>
+</defs></svg>
+
+<svg class="grano" aria-hidden="true"><filter id="grano"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#grano)"/></svg>
+
+<main class="hoja escaneo">
+
+  <button type="button" class="tema-boton" data-tema-boton><span class="u-chico">modo oscuro</span></button>
+
+  <p class="meta">MUNRA &middot; Santiago, Chile &middot; cinta 01</p>
+
+  <h1 class="titulo"><span class="u">Demos,</span> <span class="u">nada</span> <span class="u">más.</span></h1>
+
+  <div class="idea">
+    <p>Canciones grabadas con equipos antiguos y sencillos, tal como salieron. No están terminadas y no van a estarlo. Apretá play.</p>
+  </div>
+
+  <h2 id="lado-a" class="seccion"><span class="u-chico">LADO A:</span></h2>
+  <ol class="lado" aria-labelledby="lado-a">
+    <li class="tema" data-src="temas/prueba.mp3">
+      <span class="n">01</span>
+      <div class="t">
+        <div class="nombre">Prueba de cinta <span class="estado">[demo]</span></div>
+        <div class="r">Un tono y un poco de hiss para probar el player. Se borra cuando llegue el primer demo de verdad.</div>
+      </div>
+      <button type="button" class="play"><span class="u-chico">play</span></button>
+    </li>
+  </ol>
+
+  <h2 id="lado-b" class="seccion"><span class="u-chico">LADO B:</span></h2>
+  <ol class="lado" aria-labelledby="lado-b">
+    <li class="tema">
+      <span class="n">&mdash;</span>
+      <div class="t">
+        <div class="r">Todavía en blanco.</div>
+      </div>
+    </li>
+  </ol>
+
+  <audio data-cinta preload="none"></audio>
+
+  <div class="aire"></div>
+
+  <footer class="pie">
+    <div>&copy; 2026 munra</div>
+    <div class="pie-links"><a href="https://lebateleur.cl/">le bateleur</a> <a class="contacto" href="#contacto" data-u="rafasacaan" data-d="gmail.com"><span class="u-chico">contacto</span></a></div>
+  </footer>
+
+</main>
+
+<script src="tema.js?v=1" defer></script>
+<script src="cinta.js?v=1" defer></script>
+</body>
+</html>
