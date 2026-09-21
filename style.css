@@ -90,6 +90,7 @@ a:focus-visible, button:focus-visible{ outline:1px solid var(--tinta); outline-o
 .foto{ margin:0; padding-top:40px; max-width:360px; }
 .foto img{ display:block; width:100%; height:auto; filter:grayscale(1) contrast(1.05); }
 :root[data-tema="claro"] .foto img{ opacity:.92; }
+.foto-pie{ padding-top:56px; max-width:300px; }
 
 /* ---- los temas: la lista escrita a mano en la carátula ---- */
 .lado{ padding-top:20px; max-width:980px; list-style:none; display:flex; flex-direction:column; gap:22px; font-size:16px; line-height:1.45; }
@@ -149,6 +150,7 @@ a:focus-visible, button:focus-visible{ outline:1px solid var(--tinta); outline-o
   .seccion{ padding-top:48px; font-size:15px; }
   .seccion:first-of-type{ padding-top:52px; }
   .foto{ padding-top:28px; max-width:260px; }
+  .foto-pie{ padding-top:40px; max-width:220px; }
   .idea{ font-size:15px; }
   .lado{ font-size:15px; gap:18px; }
   .tema{ gap:14px; }
