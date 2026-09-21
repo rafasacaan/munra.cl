@@ -86,10 +86,24 @@ a:focus-visible, button:focus-visible{ outline:1px solid var(--tinta); outline-o
 .seccion{ padding-top:56px; font-size:16px; letter-spacing:.04em; }
 .seccion:first-of-type{ padding-top:72px; }
 
-/* la foto: una sola, pegada en la carátula como en un J-card */
-.foto{ margin:0; padding-top:40px; max-width:360px; }
-.foto img{ display:block; width:100%; height:auto; filter:grayscale(1) contrast(1.05); }
-:root[data-tema="claro"] .foto img{ opacity:.92; }
+/* la foto: una sola, ancha, que se sale del margen del texto. Va en gris
+   con el grano reventado: el de la imagen y otro encima, más grueso. */
+.foto{ margin:0; padding-top:40px; }
+.foto-ancha{ position:relative; margin:0 -100px; padding-top:48px; }
+.foto-ancha img{
+  display:block; width:100%; height:auto;
+  filter:grayscale(1) contrast(1.12);
+  -webkit-mask-image:linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image:linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.foto-ancha::after{
+  content:""; position:absolute; inset:48px 0 0; pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size:300px 300px;
+  opacity:.28; mix-blend-mode:overlay;
+}
+:root[data-tema="claro"] .foto-ancha img{ opacity:.9; }
+:root[data-tema="claro"] .foto-ancha::after{ opacity:.18; }
 
 /* ---- los temas: la lista escrita a mano en la carátula ---- */
 .lado{ padding-top:20px; max-width:980px; list-style:none; display:flex; flex-direction:column; gap:22px; font-size:16px; line-height:1.45; }
@@ -148,7 +162,8 @@ a:focus-visible, button:focus-visible{ outline:1px solid var(--tinta); outline-o
   .pie-links{ gap:16px; }
   .seccion{ padding-top:48px; font-size:15px; }
   .seccion:first-of-type{ padding-top:52px; }
-  .foto{ padding-top:28px; max-width:260px; }
+  .foto-ancha{ margin:0 -28px; padding-top:32px; }
+  .foto-ancha::after{ top:32px; }
   .idea{ font-size:15px; }
   .lado{ font-size:15px; gap:18px; }
   .tema{ gap:14px; }
