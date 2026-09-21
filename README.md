@@ -5,7 +5,9 @@ hoja escrita a máquina, esta es la carátula de un cassette: demos grabados con
 equipos antiguos y sencillos, puestos a escuchar y nada más.
 
 Sitio estático, sin build ni dependencias. Se edita el HTML a mano y se
-publica con GitHub Pages desde `main`. Qué es y qué decidí: `brief.md`.
+publica con GitHub Pages desde `main`, en [munra.cl](https://munra.cl). El
+dominio está en GoDaddy: cuatro `A` del apex a los IPs de GitHub Pages y un
+`CNAME` de `www` a `rafasacaan.github.io`. Qué es y qué decidí: `brief.md`.
 
 ## Estructura
 
@@ -17,6 +19,7 @@ cinta.js        el player chico de cada tema: play, línea de progreso, tiempo
 maquina.js      el peso de tinta de cada letra (como le bateleur, sin el temblor)
 tema.js         modo claro / oscuro, y el link de contacto
 404.html        página de error
+CNAME           el dominio, lo lee GitHub Pages
 ```
 
 Las rutas de `index.html` son relativas (`temas/01.mp3`, `style.css`) para que
