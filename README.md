@@ -42,11 +42,11 @@ GitHub Pages la sirve desde cualquier ruta.
 
 ## El player
 
-Cada tema tiene su `<audio>` oculto y su player chico: `play`, una línea
+Cada tema tiene su `<audio>` oculto y su player chico: el ícono de play (o pausa), una línea
 punteada que se rellena y se puede arrastrar (o mover con las flechas del
 teclado), y el tiempo. Darle play a uno pausa cualquier otro. Cuando un tema
 termina, sigue el siguiente, como una cinta. Mientras suena, la palabra
-`pausa` parpadea apenas, como el led de una casetera.
+el ícono parpadea apenas, como el led de una casetera.
 
 ## Probar local
 

@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@0,400;0,500;1,400&display=swap">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 <script src="maquina.js?v=3" defer></script>
 </head>
 <body>
@@ -57,7 +57,10 @@
         <div class="nombre">Prueba de cinta <span class="estado">[demo]</span></div>
         <div class="r">Un tono y un poco de hiss para probar el player. Se borra cuando llegue el primer demo de verdad.</div>
         <div class="player">
-          <button type="button" class="play" aria-label="play Prueba de cinta"><span class="u-chico">play</span></button>
+          <button type="button" class="play" aria-label="play">
+            <svg class="ico ico-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 2.2v11.6L13.2 8z"/></svg>
+            <svg class="ico ico-pausa" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 2.4h3.4v11.2H3.2zM9.4 2.4h3.4v11.2H9.4z"/></svg>
+          </button>
           <div class="linea" role="slider" tabindex="0" aria-label="posición en la cinta" aria-valuemin="0" aria-valuenow="0"><i class="pos"></i></div>
           <span class="tiempo">0:00 / -:--</span>
         </div>
@@ -86,6 +89,6 @@
 </main>
 
 <script src="tema.js?v=1" defer></script>
-<script src="cinta.js?v=2" defer></script>
+<script src="cinta.js?v=3" defer></script>
 </body>
 </html>

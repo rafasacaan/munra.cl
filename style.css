@@ -115,15 +115,18 @@ a:focus-visible, button:focus-visible{ outline:1px solid var(--tinta); outline-o
 .tema .estado{ color:var(--gris); }
 .tema .r{ font-size:14px; line-height:1.5; color:var(--gris); }
 
-/* el player chico: play, una línea de progreso y el tiempo. La línea es
+/* el player chico: el ícono de play (o pausa), una línea de progreso y el tiempo. La línea es
    punteada como escrita a máquina; lo ya escuchado se rellena sólido. */
 .player{ display:flex; align-items:center; gap:16px; padding-top:10px; max-width:520px; }
 .play{
-  flex-shrink:0; min-width:52px; min-height:32px;
-  font:inherit; font-size:15px; letter-spacing:.02em;
-  color:var(--tinta); background:transparent; border:0; cursor:pointer;
-  text-align:left; padding:2px 0;
+  flex-shrink:0; width:36px; height:32px; margin-left:-8px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--tinta); background:transparent; border:0; cursor:pointer; padding:0;
 }
+.play .ico{ width:14px; height:14px; fill:currentColor; display:none; }
+.play .ico-play{ display:block; }
+.tema[data-estado="sonando"] .play .ico-play{ display:none; }
+.tema[data-estado="sonando"] .play .ico-pausa{ display:block; }
 .linea{
   position:relative; flex:1; height:24px; cursor:pointer; touch-action:none;
   background:repeating-linear-gradient(to right, var(--gris) 0 4px, transparent 4px 8px) center / 100% 1px no-repeat;
@@ -170,7 +173,7 @@ a:focus-visible, button:focus-visible{ outline:1px solid var(--tinta); outline-o
   .tema .n{ width:32px; }
   .tema .nombre{ font-size:16px; }
   .tema .r{ font-size:13px; }
-  .play{ min-width:48px; font-size:14px; }
+  .play{ width:32px; }
   .player{ gap:12px; }
   .tiempo{ font-size:12px; }
 }

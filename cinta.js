@@ -1,4 +1,4 @@
-/* un player chico por tema: play, una línea de progreso que se puede
+/* un player chico por tema: un botón con el ícono de play o pausa, una línea de progreso que se puede
    arrastrar, y el tiempo. Cada tema tiene su <audio>; darle play a uno
    pausa cualquier otro. Cuando un tema termina sigue el siguiente, como
    una cinta que corre. */
@@ -20,7 +20,7 @@
     var tiempo = tema.querySelector('.tiempo');
 
     function rotular(estado) {
-      play.querySelector('span').textContent = estado === 'sonando' ? 'pausa' : 'play';
+      play.setAttribute('aria-label', estado === 'sonando' ? 'pausa' : 'play');
       tema.dataset.estado = estado || '';
     }
     function pintar() {
