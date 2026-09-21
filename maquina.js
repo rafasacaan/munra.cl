@@ -22,9 +22,9 @@
         s.className = 'g';
         s.textContent = ch;
         var r = rnd();
-        // un 18% sale cargada de tinta; un 14% floja; el resto con leve varianza
-        var peso = r < 0.18 ? between(0.35, 0.7) : r > 0.86 ? 0 : between(0, 0.18);
-        var opac = r > 0.86 ? between(0.55, 0.78) : between(0.86, 1);
+        // suave: un 10% sale algo cargada de tinta; un 10% apenas floja; el resto casi pareja
+        var peso = r < 0.10 ? between(0.15, 0.3) : r > 0.90 ? 0 : between(0, 0.08);
+        var opac = r > 0.90 ? between(0.72, 0.86) : between(0.94, 1);
         s.style.setProperty('--peso', peso.toFixed(2) + 'px');
         s.style.setProperty('--op', opac.toFixed(2));
         pal.appendChild(s);
