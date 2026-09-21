@@ -1,6 +1,8 @@
-/* la pegada de cada caracter: unas letras cargadas de tinta, otras flojas,
-   apenas fuera de línea. Corre sobre los elementos con class="escaneo". El azar sale de una semilla fija para que cada letra
-   caiga siempre igual: la hoja es una hoja, no una animación. */
+/* la pegada de cada caracter: unas letras cargadas de tinta, otras flojas.
+   A diferencia de le bateleur, acá las letras van derechas: sin
+   desplazamiento ni rotación. Corre sobre los elementos con class="escaneo".
+   El azar sale de una semilla fija para que cada letra caiga siempre igual:
+   la hoja es una hoja, no una animación. */
 (function () {
   var seed = 7;
   function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
@@ -23,8 +25,6 @@
         // un 18% sale cargada de tinta; un 14% floja; el resto con leve varianza
         var peso = r < 0.18 ? between(0.35, 0.7) : r > 0.86 ? 0 : between(0, 0.18);
         var opac = r > 0.86 ? between(0.55, 0.78) : between(0.86, 1);
-        s.style.setProperty('--dy', between(-0.6, 0.6).toFixed(2) + 'px');
-        s.style.setProperty('--rot', between(-0.9, 0.9).toFixed(2) + 'deg');
         s.style.setProperty('--peso', peso.toFixed(2) + 'px');
         s.style.setProperty('--op', opac.toFixed(2));
         pal.appendChild(s);

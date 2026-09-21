@@ -19,8 +19,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:ital,wght@0,400;0,500;1,400&display=swap">
-<link rel="stylesheet" href="style.css?v=1">
-<script src="maquina.js?v=1" defer></script>
+<link rel="stylesheet" href="style.css?v=3">
+<script src="maquina.js?v=2" defer></script>
 </head>
 <body>
 
@@ -48,13 +48,18 @@
 
   <h2 id="lado-a" class="seccion"><span class="u-chico">LADO A:</span></h2>
   <ol class="lado" aria-labelledby="lado-a">
-    <li class="tema" data-src="temas/prueba.mp3">
+    <li class="tema">
       <span class="n">01</span>
       <div class="t">
         <div class="nombre">Prueba de cinta <span class="estado">[demo]</span></div>
         <div class="r">Un tono y un poco de hiss para probar el player. Se borra cuando llegue el primer demo de verdad.</div>
+        <div class="player">
+          <button type="button" class="play" aria-label="play Prueba de cinta"><span class="u-chico">play</span></button>
+          <div class="linea" role="slider" tabindex="0" aria-label="posición en la cinta" aria-valuemin="0" aria-valuenow="0"><i class="pos"></i></div>
+          <span class="tiempo">0:00 / -:--</span>
+        </div>
+        <audio preload="metadata" src="temas/prueba.mp3"></audio>
       </div>
-      <button type="button" class="play"><span class="u-chico">play</span></button>
     </li>
   </ol>
 
@@ -68,8 +73,6 @@
     </li>
   </ol>
 
-  <audio data-cinta preload="none"></audio>
-
   <div class="aire"></div>
 
   <footer class="pie">
@@ -80,6 +83,6 @@
 </main>
 
 <script src="tema.js?v=1" defer></script>
-<script src="cinta.js?v=1" defer></script>
+<script src="cinta.js?v=2" defer></script>
 </body>
 </html>

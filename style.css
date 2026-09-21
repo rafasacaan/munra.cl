@@ -1,4 +1,4 @@
-/* munra, v1: la carátula de un cassette, escrita en la misma máquina que
+/* munra, v3: la carátula de un cassette, escrita en la misma máquina que
    le bateleur. Una sola letra, Sometype Mono, en dos tonos. El grano de papel
    es un SVG fijo encima de todo; el sangrado de tinta va solo en el titular. */
 :root{
@@ -89,22 +89,35 @@ a:focus-visible, button:focus-visible{ outline:1px solid var(--tinta); outline-o
 /* ---- los temas: la lista escrita a mano en la carátula ---- */
 .lado{ padding-top:20px; max-width:980px; list-style:none; display:flex; flex-direction:column; gap:22px; font-size:16px; line-height:1.45; }
 .tema{ display:flex; gap:20px; align-items:flex-start; }
+.tema audio{ display:none; }
 .tema .n{ flex-shrink:0; width:40px; color:var(--gris); padding-top:2px; }
 .tema .t{ flex:1; display:flex; flex-direction:column; gap:4px; }
 .tema .nombre{ font-size:17px; }
 .tema .estado{ color:var(--gris); }
 .tema .r{ font-size:14px; line-height:1.5; color:var(--gris); }
 
-/* el botón: una palabra subrayada, como todo lo demás. Cuando suena, parpadea
-   apenas, como el led de una casetera. */
+/* el player chico: play, una línea de progreso y el tiempo. La línea es
+   punteada como escrita a máquina; lo ya escuchado se rellena sólido. */
+.player{ display:flex; align-items:center; gap:16px; padding-top:10px; max-width:520px; }
 .play{
-  flex-shrink:0; min-width:64px; min-height:32px;
+  flex-shrink:0; min-width:52px; min-height:32px;
   font:inherit; font-size:15px; letter-spacing:.02em;
   color:var(--tinta); background:transparent; border:0; cursor:pointer;
   text-align:left; padding:2px 0;
 }
+.linea{
+  position:relative; flex:1; height:24px; cursor:pointer; touch-action:none;
+  background:repeating-linear-gradient(to right, var(--gris) 0 4px, transparent 4px 8px) center / 100% 1px no-repeat;
+}
+.linea .pos{
+  position:absolute; left:0; top:50%; height:2px; width:0; margin-top:-1px;
+  background:var(--tinta); display:block; pointer-events:none;
+}
+.linea .pos::after{
+  content:""; position:absolute; right:-2px; top:-3px; width:4px; height:8px; background:var(--tinta);
+}
+.tiempo{ flex-shrink:0; font-size:13px; color:var(--gris); letter-spacing:.02em; font-variant-numeric:tabular-nums; }
 .tema[data-estado="sonando"] .play{ animation:led 1.6s ease-in-out infinite; }
-.tema[data-estado="cargando"] .play{ color:var(--gris); }
 @keyframes led{ 0%,100%{ opacity:1; } 50%{ opacity:.45; } }
 
 .aire{ flex-grow:1; min-height:72px; }
@@ -136,14 +149,15 @@ a:focus-visible, button:focus-visible{ outline:1px solid var(--tinta); outline-o
   .tema .n{ width:32px; }
   .tema .nombre{ font-size:16px; }
   .tema .r{ font-size:13px; }
-  .play{ min-width:56px; font-size:14px; }
+  .play{ min-width:48px; font-size:14px; }
+  .player{ gap:12px; }
+  .tiempo{ font-size:12px; }
 }
 
-/* ---- la hoja escaneada ---- */
+/* ---- la hoja escaneada: cada letra con su peso de tinta, derechas ---- */
 .pal{ white-space:nowrap; }
 .g{
   display:inline-block;
-  transform:translateY(var(--dy,0)) rotate(var(--rot,0));
   opacity:var(--op,1);
   text-shadow:0 0 var(--peso,0) currentColor, 0 0 var(--peso,0) currentColor;
 }
@@ -155,4 +169,4 @@ a:focus-visible, button:focus-visible{ outline:1px solid var(--tinta); outline-o
   filter:blur(.3px);
   pointer-events:none;
 }
-@media (prefers-reduced-motion: reduce){ .g{ transform:none; } .tema[data-estado="sonando"] .play{ animation:none; } }
+@media (prefers-reduced-motion: reduce){ .tema[data-estado="sonando"] .play{ animation:none; } }

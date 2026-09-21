@@ -13,8 +13,8 @@ publica con GitHub Pages desde `main`. Qué es y qué decidí: `brief.md`.
 index.html      la única hoja: lado A, lado B
 temas/          los mp3, uno por tema
 style.css       la única hoja de estilos
-cinta.js        el player: un <audio> para toda la hoja, sin barra ni tiempo
-maquina.js      la pegada de cada letra (igual que en le bateleur)
+cinta.js        el player chico de cada tema: play, línea de progreso, tiempo
+maquina.js      el peso de tinta de cada letra (como le bateleur, sin el temblor)
 tema.js         modo claro / oscuro, y el link de contacto
 404.html        página de error
 ```
@@ -31,18 +31,19 @@ GitHub Pages la sirve desde cualquier ruta.
    ffmpeg -i original.wav -ac 1 -b:a 112k temas/02-nombre.mp3
    ```
 
-2. Agregar un `<li class="tema" data-src="temas/02-nombre.mp3">` al lado que
-   corresponda, en `index.html`. Número, nombre con `[demo]`, y la nota de dos
-   líneas: qué equipo, dónde, qué toma.
+2. Copiar el `<li class="tema">` de un tema existente en `index.html`, al lado
+   que corresponda. Número, nombre con `[demo]`, la nota de dos líneas (qué
+   equipo, dónde, qué toma) y el `src` del `<audio>`.
 3. Si cambió `style.css`, `cinta.js`, `maquina.js` o `tema.js`, subir el
    `?v=N` en `index.html` y `404.html`.
 
 ## El player
 
-Un solo `<audio>` oculto. Cada tema tiene un botón `play`; apretar uno pausa
-cualquier otro. Cuando un tema termina, sigue el siguiente, como una cinta.
-No hay barra de progreso ni tiempo restante, a propósito. Mientras suena, la
-palabra `pausa` parpadea apenas, como el led de una casetera.
+Cada tema tiene su `<audio>` oculto y su player chico: `play`, una línea
+punteada que se rellena y se puede arrastrar (o mover con las flechas del
+teclado), y el tiempo. Darle play a uno pausa cualquier otro. Cuando un tema
+termina, sigue el siguiente, como una cinta. Mientras suena, la palabra
+`pausa` parpadea apenas, como el led de una casetera.
 
 ## Probar local
 
