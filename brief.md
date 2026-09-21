@@ -14,7 +14,7 @@ Quiero un lugar donde las canciones existan sin la presión de "postear". Un dem
 - **Player sin barra de progreso ni tiempo.** Apretás play y no sabés cuánto falta. Cuando termina un tema, sigue el siguiente, como una cinta. Sí se puede elegir tema (la versión sin saltos era demasiado hostil).
 - **Sin fecha de publicación visible.** Munra no publica, munra graba. La fecha, si va, es la de la grabación y vive en la nota.
 - **Todo sigue `[demo]`, siempre.** Es el equivalente al `[placeholder]` de le bateleur, pero acá nada sale nunca de ese estado.
-- **Mismo look que la hermana**: Sometype Mono, grano de papel, `maquina.js` con la pegada de cada letra, modo claro/oscuro. Se nota que son de la misma familia.
+- **Mismo look que la hermana**: Sometype Mono, grano de papel, `maquina.js` con la pegada de cada letra, modo claro/oscuro. Se nota que son de la misma familia. **Arranca en oscuro** (le bateleur sigue al sistema): una cinta se escucha de noche.
 - **Estático puro**, HTML a mano, `<audio>` nativo controlado desde `cinta.js`. Sin build, sin librerías. Audio en mp3 mono a 96–128k: pesa la mitad y suena a lo que es.
 - **Rutas relativas** (`temas/01.mp3`, `style.css`), para que funcione en GitHub Pages con o sin dominio propio.
 

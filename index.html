@@ -11,9 +11,9 @@
 <meta property="og:locale" content="es_CL">
 <meta property="og:site_name" content="munra">
 
-<!-- el tema se decide antes de pintar para que no parpadee -->
+<!-- el tema se decide antes de pintar para que no parpadee: lo guardado manda; si no, oscuro -->
 <script>
-(function(){try{var t=localStorage.getItem('tema')||(matchMedia('(prefers-color-scheme: dark)').matches?'oscuro':'claro');document.documentElement.dataset.tema=t;}catch(e){}})();
+(function(){try{var t=localStorage.getItem('tema')||'oscuro';document.documentElement.dataset.tema=t;}catch(e){}})();
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
